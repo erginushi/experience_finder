@@ -22,6 +22,7 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
   bool favourited = false;
   @override
   Widget build(BuildContext context) {
+    print(widget.data);
     double sw = MediaQuery.of(context).size.width;
     double sh = MediaQuery.of(context).size.height;
     return Container(
@@ -150,6 +151,33 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
                       fontWeight: FontWeight.normal,
                       fontSize: 18),
                 ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 24, top: 16, right: 24, bottom: 4),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Tags',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18)),
+                      Row(
+                        children: [
+                          for (var i = 0; i < widget.data['tags'].length; i++)
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Chip(
+                                  backgroundColor: Colors.blueAccent,
+                                  label: Text(
+                                    widget.data['tags'][i],
+                                    style: TextStyle(color: Colors.white),
+                                  )),
+                            )
+                        ],
+                      )
+                    ]),
               ),
               Padding(
                 padding: const EdgeInsets.all(24.0),

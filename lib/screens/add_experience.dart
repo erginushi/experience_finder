@@ -5,6 +5,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:image_viewer/image_viewer.dart';
 import 'package:latlong2/latlong.dart' as latLng;
+import 'package:textfield_tags/textfield_tags.dart';
 
 class AddExperience extends StatefulWidget {
   const AddExperience({
@@ -16,9 +17,12 @@ class AddExperience extends StatefulWidget {
 }
 
 class _AddExperienceState extends State<AddExperience> {
+  TextfieldTagsController _controller = TextfieldTagsController();
+
   @override
   Widget build(BuildContext context) {
     double sw = MediaQuery.of(context).size.width;
+    double _distanceToField = MediaQuery.of(context).size.width;
     TextEditingController nameController = new TextEditingController();
     TextEditingController descriptionController = new TextEditingController();
 
@@ -64,6 +68,110 @@ class _AddExperienceState extends State<AddExperience> {
                           borderSide: new BorderSide(color: Colors.teal)),
                     ),
                     maxLines: 4,
+                  ),
+                ),
+                SizedBox(
+                  height: 12,
+                ),
+                Text('Tags'),
+                Container(
+                  child: TextFieldTags(
+                    textfieldTagsController: _controller,
+                    initialTags: const [],
+                    textSeparators: const [' ', ','],
+                    letterCase: LetterCase.normal,
+                    // validator: (String tag) {
+                    //   if (tag == 'php') {
+                    //     return 'No, please just no';
+                    //   } else if (_controller?.getTags != null ? _controller.getTags.contains(tag):false) {
+                    //     return 'you already entered that';
+                    //   }
+                    //   return null;
+                    // },
+                    inputfieldBuilder:
+                        (context, tec, fn, error, onChanged, onSubmitted) {
+                      return ((context, sc, tags, onTagDelete) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 16.0),
+                          child: TextField(
+                            controller: tec,
+                            focusNode: fn,
+                            decoration: InputDecoration(
+                              isDense: true,
+                              border: const OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.blueAccent,
+                                  width: 3.0,
+                                ),
+                              ),
+                              focusedBorder: const OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.blueAccent,
+                                  width: 3.0,
+                                ),
+                              ),
+                              hintText: _controller.hasTags
+                                  ? ''
+                                  : "Add tags like activity type, etc.",
+                              errorText: error,
+                              prefixIconConstraints: BoxConstraints(
+                                  maxWidth: _distanceToField * 0.74),
+                              prefixIcon: tags.isNotEmpty
+                                  ? SingleChildScrollView(
+                                      controller: sc,
+                                      scrollDirection: Axis.horizontal,
+                                      child: Row(
+                                          children: tags.map((String tag) {
+                                        return Container(
+                                          decoration: const BoxDecoration(
+                                            borderRadius: BorderRadius.all(
+                                              Radius.circular(20.0),
+                                            ),
+                                            color: Colors.blueAccent,
+                                          ),
+                                          margin: const EdgeInsets.symmetric(
+                                              horizontal: 5.0),
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 10.0, vertical: 5.0),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              InkWell(
+                                                child: Text(
+                                                  '#$tag',
+                                                  style: const TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                                onTap: () {
+                                                  print("$tag selected");
+                                                },
+                                              ),
+                                              const SizedBox(width: 4.0),
+                                              InkWell(
+                                                child: const Icon(
+                                                  Icons.cancel,
+                                                  size: 14.0,
+                                                  color: Color.fromARGB(
+                                                      255, 233, 233, 233),
+                                                ),
+                                                onTap: () {
+                                                  onTagDelete(tag);
+                                                },
+                                              )
+                                            ],
+                                          ),
+                                        );
+                                      }).toList()),
+                                    )
+                                  : null,
+                            ),
+                            onChanged: onChanged,
+                            onSubmitted: onSubmitted,
+                          ),
+                        );
+                      });
+                    },
                   ),
                 ),
                 SizedBox(
@@ -140,6 +248,7 @@ class _AddExperienceState extends State<AddExperience> {
                         onPressed: () => {
                               nameController.text = "",
                               descriptionController.text = "",
+                              _controller.clearTags()
                             },
                         child: Text("Clear")),
                     SizedBox(

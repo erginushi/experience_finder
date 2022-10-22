@@ -1,6 +1,9 @@
 import 'package:epxerience_finder/screens/add_experience.dart';
 import 'package:epxerience_finder/screens/experience_screen.dart';
+import 'package:epxerience_finder/screens/favourites.dart';
 import 'package:epxerience_finder/screens/home_screen.dart';
+import 'package:epxerience_finder/screens/profile.dart';
+import 'package:epxerience_finder/screens/search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
@@ -50,10 +53,10 @@ class _MyHomePageState extends State<MyHomePage> {
         controller: _controller,
         screens: const [
           HomeScreen(),
-          Text('123'),
+          Search(),
           AddExperience(),
-          Text('123'),
-          Text('123'),
+          Favourites(),
+          Profile(),
         ],
         items: [
           PersistentBottomNavBarItem(

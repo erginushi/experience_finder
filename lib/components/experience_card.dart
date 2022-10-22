@@ -3,8 +3,25 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 
 class ExperinceCard extends StatefulWidget {
+  final dynamic data;
+  final bool deletable;
   final String heroTag;
-  const ExperinceCard({Key? key, required this.heroTag}) : super(key: key);
+  final String image;
+  final String name;
+  final String distance;
+  final String reviews;
+  bool favourite;
+  ExperinceCard({
+    Key? key,
+    required this.data,
+    required this.deletable,
+    required this.heroTag,
+    required this.image,
+    required this.name,
+    required this.distance,
+    required this.reviews,
+    required this.favourite,
+  }) : super(key: key);
 
   @override
   _ExperinceCardState createState() => _ExperinceCardState();
@@ -20,7 +37,10 @@ class _ExperinceCardState extends State<ExperinceCard> {
           context,
           MaterialPageRoute(
             builder: (context) => ExperienceScreen(
-              data: {"id": widget.heroTag},
+              data: {
+                ...widget.data,
+                "id": widget.heroTag,
+              },
             ),
           ),
         );
@@ -31,11 +51,10 @@ class _ExperinceCardState extends State<ExperinceCard> {
       ),
       child: Container(
         height: 200,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
-            image: NetworkImage(
-                'https://albania360.com/wp-content/uploads/2022/06/286705471_5226925277344994_9150394650843000115_n-e1655302581295.jpg'),
+            image: NetworkImage(widget.image),
           ),
           borderRadius: BorderRadius.all(Radius.circular(8)),
         ),
@@ -81,7 +100,7 @@ class _ExperinceCardState extends State<ExperinceCard> {
                     ),
                     onPressed: () {
                       setState(() {
-                        favourited = !favourited;
+                        widget.favourite = !widget.favourite;
                       });
                     },
                     child: ClipRRect(
@@ -92,16 +111,22 @@ class _ExperinceCardState extends State<ExperinceCard> {
                           decoration: BoxDecoration(
                               color: Colors.grey.shade200.withOpacity(0.5)),
                           padding: EdgeInsets.all(5),
-                          child: Center(
-                            child: Icon(
-                              favourited
-                                  ? Icons.favorite
-                                  : Icons.favorite_border,
-                              color: favourited
-                                  ? Colors.redAccent
-                                  : Color.fromRGBO(0, 0, 0, 0.6),
-                            ),
-                          ),
+                          child: widget.deletable
+                              ? Center(
+                                  child: Icon(
+                                  Icons.delete_outline_outlined,
+                                  color: Color.fromRGBO(0, 0, 0, 0.6),
+                                ))
+                              : Center(
+                                  child: Icon(
+                                    widget.favourite
+                                        ? Icons.favorite
+                                        : Icons.favorite_border,
+                                    color: widget.favourite
+                                        ? Colors.redAccent
+                                        : Color.fromRGBO(0, 0, 0, 0.6),
+                                  ),
+                                ),
                         ),
                       ),
                     ),
@@ -118,24 +143,24 @@ class _ExperinceCardState extends State<ExperinceCard> {
                           color: Colors.grey.shade200.withOpacity(0.5)),
                       padding: EdgeInsets.symmetric(vertical: 10),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: const [
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
                           Text(
-                            'Petrela ZIP LINE',
+                            widget.name,
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
-                          VerticalDivider(
+                          const VerticalDivider(
                             color: Colors.black,
                           ),
                           Text(
-                            '5 KM',
+                            widget.distance,
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
-                          VerticalDivider(
+                          const VerticalDivider(
                             color: Colors.black,
                           ),
                           Text(
-                            '15 reviews',
+                            widget.distance,
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ],
