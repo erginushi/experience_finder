@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 
 class ExperinceCard extends StatefulWidget {
+  final dynamic data;
+  final bool deletable;
   final String heroTag;
   final String image;
   final String name;
@@ -11,6 +13,8 @@ class ExperinceCard extends StatefulWidget {
   bool favourite;
   ExperinceCard({
     Key? key,
+    required this.data,
+    required this.deletable,
     required this.heroTag,
     required this.image,
     required this.name,
@@ -33,7 +37,10 @@ class _ExperinceCardState extends State<ExperinceCard> {
           context,
           MaterialPageRoute(
             builder: (context) => ExperienceScreen(
-              data: {"id": widget.heroTag},
+              data: {
+                ...widget.data,
+                "id": widget.heroTag,
+              },
             ),
           ),
         );
@@ -104,16 +111,22 @@ class _ExperinceCardState extends State<ExperinceCard> {
                           decoration: BoxDecoration(
                               color: Colors.grey.shade200.withOpacity(0.5)),
                           padding: EdgeInsets.all(5),
-                          child: Center(
-                            child: Icon(
-                              widget.favourite
-                                  ? Icons.favorite
-                                  : Icons.favorite_border,
-                              color: widget.favourite
-                                  ? Colors.redAccent
-                                  : Color.fromRGBO(0, 0, 0, 0.6),
-                            ),
-                          ),
+                          child: widget.deletable
+                              ? Center(
+                                  child: Icon(
+                                  Icons.delete_outline_outlined,
+                                  color: Color.fromRGBO(0, 0, 0, 0.6),
+                                ))
+                              : Center(
+                                  child: Icon(
+                                    widget.favourite
+                                        ? Icons.favorite
+                                        : Icons.favorite_border,
+                                    color: widget.favourite
+                                        ? Colors.redAccent
+                                        : Color.fromRGBO(0, 0, 0, 0.6),
+                                  ),
+                                ),
                         ),
                       ),
                     ),

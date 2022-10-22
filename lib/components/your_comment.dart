@@ -1,7 +1,9 @@
+import 'package:epxerience_finder/components/review_modal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class YourComment extends StatefulWidget {
   const YourComment({super.key});
@@ -44,7 +46,23 @@ class _YourCommentState extends State<YourComment> {
               TextButton(
                   style: TextButton.styleFrom(
                       foregroundColor: Color.fromRGBO(0, 0, 0, 0.6)),
-                  onPressed: () => {},
+                  onPressed: () => {
+                        showCupertinoModalBottomSheet(
+                          context: context,
+                          builder: (context) => SingleChildScrollView(
+                            controller: ModalScrollController.of(context),
+                            child: ReviewModal(
+                              data: {
+                                "name": "Ergi Nushi",
+                                "user_pic": "https://picsum.photos/536/354",
+                                "stars": 0.0,
+                                "images": []
+                              },
+                              disabled: false,
+                            ),
+                          ),
+                        ),
+                      },
                   child: Row(
                     children: [Text('Add'), Icon(Icons.add_box_outlined)],
                   ))

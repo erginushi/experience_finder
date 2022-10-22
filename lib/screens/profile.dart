@@ -34,7 +34,7 @@ class _ProfileState extends State<Profile> {
               height: MediaQuery.of(context).size.width * 0.1,
               child: const Center(
                 child: Text(
-                  'Filan Fisteku',
+                  'Ergi Nushi',
                   style: TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
@@ -92,6 +92,8 @@ class _ProfileState extends State<Profile> {
               child: Hero(
                 tag: experienceCardsData[0]['id'],
                 child: ExperinceCard(
+                  data: experienceCardsData[0],
+                  deletable: true,
                   heroTag: experienceCardsData[0]['id'],
                   image: experienceCardsData[0]['image'],
                   name: experienceCardsData[0]['name'],
@@ -106,6 +108,8 @@ class _ProfileState extends State<Profile> {
               child: Hero(
                 tag: experienceCardsData[1]['id'],
                 child: ExperinceCard(
+                  data: experienceCardsData[1],
+                  deletable: true,
                   heroTag: experienceCardsData[1]['id'],
                   image: experienceCardsData[1]['image'],
                   name: experienceCardsData[1]['name'],
@@ -120,6 +124,8 @@ class _ProfileState extends State<Profile> {
               child: Hero(
                 tag: experienceCardsData[0]['id'],
                 child: ExperinceCard(
+                  data: experienceCardsData[0],
+                  deletable: true,
                   heroTag: experienceCardsData[0]['id'],
                   image: experienceCardsData[0]['image'],
                   name: experienceCardsData[0]['name'],

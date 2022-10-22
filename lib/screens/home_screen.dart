@@ -68,6 +68,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 return Hero(
                   tag: experienceCardsData[index]['id'],
                   child: ExperinceCard(
+                    data: experienceCardsData[index],
+                    deletable: false,
                     heroTag: experienceCardsData[index]['id'],
                     image: experienceCardsData[index]['image'],
                     name: experienceCardsData[index]['name'],
@@ -77,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 );
               },
-              itemCount: 2,
+              itemCount: experienceCardsData.length,
             ),
           ),
         ],
