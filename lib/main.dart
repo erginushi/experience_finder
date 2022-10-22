@@ -1,4 +1,7 @@
+import 'package:epxerience_finder/screens/home_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,18 +51,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+  final PersistentTabController _controller =
+      PersistentTabController(initialIndex: 0);
 
   @override
   Widget build(BuildContext context) {
@@ -75,35 +68,78 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+      bottomNavigationBar: PersistentTabView(
+        context,
+        controller: _controller,
+        screens: const [
+          HomeScreen(),
+          Text('123'),
+          Text('123'),
+          Text('123'),
+          Text('123'),
+        ],
+        items: [
+          PersistentBottomNavBarItem(
+            icon: Icon(CupertinoIcons.globe),
+            title: ("Experiences"),
+            activeColorPrimary: CupertinoColors.activeBlue,
+            inactiveColorPrimary: CupertinoColors.systemGrey,
+          ),
+          PersistentBottomNavBarItem(
+            icon: Icon(CupertinoIcons.search),
+            title: ("Search"),
+            activeColorPrimary: CupertinoColors.activeBlue,
+            inactiveColorPrimary: CupertinoColors.systemGrey,
+          ),
+          PersistentBottomNavBarItem(
+            icon: const Icon(
+              CupertinoIcons.add,
+              color: Colors.white,
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+            // title: ("Settings"),
+            activeColorPrimary: CupertinoColors.activeBlue,
+            inactiveColorPrimary: CupertinoColors.systemGrey,
+          ),
+          PersistentBottomNavBarItem(
+            icon: Icon(CupertinoIcons.heart),
+            title: ("Favourites"),
+            activeColorPrimary: CupertinoColors.activeBlue,
+            inactiveColorPrimary: CupertinoColors.systemGrey,
+          ),
+          PersistentBottomNavBarItem(
+            icon: Icon(CupertinoIcons.profile_circled),
+            title: ("Profile"),
+            activeColorPrimary: CupertinoColors.activeBlue,
+            inactiveColorPrimary: CupertinoColors.systemGrey,
+          ),
+        ],
+        confineInSafeArea: true,
+        backgroundColor: Colors.white, // Default is Colors.white.
+        handleAndroidBackButtonPress: true, // Default is true.
+        resizeToAvoidBottomInset:
+            true, // This needs to be true if you want to move up the screen when keyboard appears. Default is true.
+        stateManagement: true, // Default is true.
+        hideNavigationBarWhenKeyboardShows:
+            true, // Recommended to set 'resizeToAvoidBottomInset' as true while using this argument. Default is true.
+        decoration: NavBarDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          colorBehindNavBar: Colors.white,
         ),
+        popAllScreensOnTapOfSelectedTab: true,
+        popActionScreens: PopActionScreensType.all,
+        itemAnimationProperties: ItemAnimationProperties(
+          // Navigation Bar's items animation properties.
+          duration: Duration(milliseconds: 200),
+          curve: Curves.ease,
+        ),
+        screenTransitionAnimation: ScreenTransitionAnimation(
+          // Screen transition animation on change of selected tab.
+          animateTabTransition: true,
+          curve: Curves.ease,
+          duration: Duration(milliseconds: 200),
+        ),
+        navBarStyle:
+            NavBarStyle.style16, // Choose the nav bar style with this property.
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,

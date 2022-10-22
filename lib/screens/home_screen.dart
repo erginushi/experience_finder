@@ -11,7 +11,15 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Row(children: []),
+      child: Column(
+        children: [
+          Row(
+            children: const [
+              Text('Tirana, Albania'),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
