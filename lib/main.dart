@@ -48,9 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
         controller: _controller,
         screens: const [
           HomeScreen(),
-          ExperienceScreen(
-            data: {"id": "tag_0"},
-          ),
+          Text('123'),
           Text('123'),
           Text('123'),
           Text('123'),
