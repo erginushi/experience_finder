@@ -31,45 +31,82 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
                 child: Container(
                   child: Stack(
                     clipBehavior: Clip.antiAlias,
-                    alignment: Alignment.bottomRight,
+                    alignment: Alignment.topLeft,
                     children: [
-                      Image.network(
-                          'https://albania360.com/wp-content/uploads/2022/06/286705471_5226925277344994_9150394650843000115_n-e1655302581295.jpg'),
-                      TextButton(
-                        style: ButtonStyle(
-                          overlayColor:
-                              MaterialStateProperty.all(Colors.transparent),
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            favourited = !favourited;
-                          });
-                        },
-                        child: new ClipRRect(
-                          borderRadius: BorderRadius.all(Radius.circular(60)),
-                          child: new BackdropFilter(
-                            filter: new ImageFilter.blur(
-                                sigmaX: 10.0, sigmaY: 10.0),
-                            child: new Container(
-                              width: 60.0,
-                              height: 60.0,
-                              decoration: new BoxDecoration(
-                                  color: Colors.grey.shade200.withOpacity(0.5)),
-                              child: new Center(
-                                child: new Icon(
-                                  favourited
-                                      ? Icons.favorite
-                                      : Icons.favorite_border,
-                                  size: 33,
-                                  color: favourited
-                                      ? Colors.redAccent
-                                      : Color.fromRGBO(0, 0, 0, 0.6),
+                      Stack(
+                        clipBehavior: Clip.antiAlias,
+                        alignment: Alignment.bottomRight,
+                        children: [
+                          Image.network(
+                              'https://albania360.com/wp-content/uploads/2022/06/286705471_5226925277344994_9150394650843000115_n-e1655302581295.jpg'),
+                          TextButton(
+                            style: ButtonStyle(
+                              overlayColor:
+                                  MaterialStateProperty.all(Colors.transparent),
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                favourited = !favourited;
+                              });
+                            },
+                            child: new ClipRRect(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(60)),
+                              child: new BackdropFilter(
+                                filter: new ImageFilter.blur(
+                                    sigmaX: 10.0, sigmaY: 10.0),
+                                child: new Container(
+                                  width: 60.0,
+                                  height: 60.0,
+                                  decoration: new BoxDecoration(
+                                      color: Colors.grey.shade200
+                                          .withOpacity(0.5)),
+                                  child: new Center(
+                                    child: new Icon(
+                                      favourited
+                                          ? Icons.favorite
+                                          : Icons.favorite_border,
+                                      size: 33,
+                                      color: favourited
+                                          ? Colors.redAccent
+                                          : Color.fromRGBO(0, 0, 0, 0.6),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 40, left: 8),
+                        child: TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: new ClipRRect(
+                            borderRadius: BorderRadius.all(Radius.circular(60)),
+                            child: new BackdropFilter(
+                              filter: new ImageFilter.blur(
+                                  sigmaX: 10.0, sigmaY: 10.0),
+                              child: new Container(
+                                width: 50.0,
+                                height: 50.0,
+                                decoration: new BoxDecoration(
+                                    color:
+                                        Colors.grey.shade200.withOpacity(0.5)),
+                                child: new Center(
+                                  child: new Icon(
+                                    Icons.arrow_back,
+                                    size: 33,
+                                    color: Color.fromRGBO(0, 0, 0, 0.6),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
