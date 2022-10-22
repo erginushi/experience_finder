@@ -1,3 +1,4 @@
+import 'package:epxerience_finder/utils/dummy.dart';
 import 'package:flutter/material.dart';
 
 import '../components/experience_card.dart';
@@ -10,6 +11,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  dynamic experienceCardsData = dummyData;
+  @override
+  void initState() {
+    print(experienceCardsData);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -56,13 +64,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               },
               itemBuilder: (BuildContext context, int index) {
-                String heroTag = 'tag_$index';
+                // print(experienceCardsData[index]['id']);
                 return Hero(
-                  tag: heroTag,
-                  child: ExperinceCard(heroTag: heroTag),
+                  tag: experienceCardsData[index]['id'],
+                  child: ExperinceCard(
+                    heroTag: experienceCardsData[index]['id'],
+                    image: experienceCardsData[index]['image'],
+                    name: experienceCardsData[index]['name'],
+                    distance: experienceCardsData[index]['distance'],
+                    reviews: experienceCardsData[index]['reviews'],
+                    favourite: experienceCardsData[index]['favourite'],
+                  ),
                 );
               },
-              itemCount: 5,
+              itemCount: 2,
             ),
           ),
         ],

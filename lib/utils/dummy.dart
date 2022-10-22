@@ -4,18 +4,17 @@ const dynamic dummyData = [
     "name": "Petrela ZIP LINE",
     "distance": "5 KM",
     "reviews": "15 reviews",
-    "image": "",
-    "rating": "",
+    "image":
+        'https://albania360.com/wp-content/uploads/2022/06/286705471_5226925277344994_9150394650843000115_n-e1655302581295.jpg',
     "favourite": true,
-    "description": ""
   },
   {
-    "id": "petrela",
-    "name": "Petrela ZIP LINE",
-    "distance": "5 KM",
-    "reviews": "15 reviews",
-    "image": "",
-    "rating": "",
-    "favourite": true,
+    "id": "dajti",
+    "name": "Dajti",
+    "distance": "25 KM",
+    "reviews": "150 reviews",
+    "image":
+        "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/d6/23/c7.jpg",
+    "favourite": false,
   },
 ];
