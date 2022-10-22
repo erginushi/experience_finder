@@ -35,7 +35,7 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
                 tag: widget.data['id'],
                 child: Container(
                   child: Stack(
-                    clipBehavior: Clip.antiAlias,
+                    clipBehavior: Clip.none,
                     alignment: Alignment.topLeft,
                     children: [
                       Stack(
@@ -48,7 +48,9 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
                               return Builder(
                                 builder: (BuildContext context) {
                                   return Image.network(
-                                      'https://albania360.com/wp-content/uploads/2022/06/286705471_5226925277344994_9150394650843000115_n-e1655302581295.jpg');
+                                    'https://albania360.com/wp-content/uploads/2022/06/286705471_5226925277344994_9150394650843000115_n-e1655302581295.jpg',
+                                    fit: BoxFit.cover,
+                                  );
                                 },
                               );
                             }).toList(),

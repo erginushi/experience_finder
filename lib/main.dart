@@ -1,7 +1,9 @@
+import 'package:epxerience_finder/screens/add_experience.dart';
 import 'package:epxerience_finder/screens/experience_screen.dart';
 import 'package:epxerience_finder/screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 void main() {
@@ -49,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
         screens: const [
           HomeScreen(),
           Text('123'),
-          Text('123'),
+          AddExperience(),
           Text('123'),
           Text('123'),
         ],
