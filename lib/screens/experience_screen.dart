@@ -83,6 +83,10 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
                         Padding(
                           padding: const EdgeInsets.only(top: 40, left: 8),
                           child: TextButton(
+                            style: ButtonStyle(
+                              overlayColor:
+                                  MaterialStateProperty.all(Colors.transparent),
+                            ),
                             onPressed: () {
                               Navigator.pop(context);
                             },
