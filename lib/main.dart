@@ -1,3 +1,4 @@
+import 'package:epxerience_finder/screens/experience_screen.dart';
 import 'package:epxerience_finder/screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -73,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
         controller: _controller,
         screens: const [
           HomeScreen(),
-          Text('123'),
+          ExperienceScreen(),
           Text('123'),
           Text('123'),
           Text('123'),
@@ -141,11 +142,7 @@ class _MyHomePageState extends State<MyHomePage> {
         navBarStyle:
             NavBarStyle.style16, // Choose the nav bar style with this property.
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
