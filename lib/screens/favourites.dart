@@ -45,11 +45,10 @@ class _FavouritesState extends State<Favourites> {
               padding: EdgeInsets.symmetric(vertical: 10),
               separatorBuilder: (BuildContext context, int index) {
                 return const SizedBox(
-                  height: 30,
+                  height: 10,
                 );
               },
               itemBuilder: (BuildContext context, int index) {
-                // print(experienceCardsData[index]['id']);
                 if (experienceCardsData[index]['favourite']) {
                   return Hero(
                     tag: experienceCardsData[index]['id'],
@@ -69,7 +68,7 @@ class _FavouritesState extends State<Favourites> {
                 }
                 ;
               },
-              itemCount: 2,
+              itemCount: experienceCardsData.length,
             ),
           ),
         ],
