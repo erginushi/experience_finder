@@ -140,7 +140,7 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
                 padding: const EdgeInsets.only(
                     left: 24, top: 16, right: 24, bottom: 4),
                 child: Text(
-                  'Petrela ZIP LINE',
+                  widget.data['name'],
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
