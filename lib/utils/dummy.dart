@@ -39,6 +39,28 @@ const dynamic dummyData = [
     ],
     "favourite": false,
   },
+  {
+    "id": "gjipebeach",
+    "name": "Gjipe Beach",
+    "distance": "225 KM",
+    "reviews": "350 reviews",
+    "tags": ["Beach", "Vlora"],
+    "image": [
+      "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/d6/23/c7.jpg",
+    ],
+    "favourite": true,
+  },
+  {
+    "id": "thethi",
+    "name": "Thethi",
+    "distance": "200 KM",
+    "reviews": "127 reviews",
+    "tags": ["Mountain", "Shkodra"],
+    "image": [
+      "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/d6/23/c7.jpg",
+    ],
+    "favourite": false,
+  },
 ];
 
 const List<dynamic> dummyReviews = [
