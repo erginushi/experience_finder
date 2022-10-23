@@ -7,7 +7,9 @@ const dynamic dummyData = [
     "reviewAVG": "4.3",
     "tags": ["Hike", "Extreme Sports", "ZIP Line"],
     "image": [
-      'https://albania360.com/wp-content/uploads/2022/06/286705471_5226925277344994_9150394650843000115_n-e1655302581295.jpg'
+      "https://albania360.com/wp-content/uploads/2022/06/286705471_5226925277344994_9150394650843000115_n-e1655302581295.jpg",
+      "https://www.imalbania.com/kosova/wp-content/uploads/2022/05/zipline.png",
+      "https://www.zenith.travel/uploads/7aef9e4b4384284927813ec7817cb59be98b597c34fea683e2db26f77590eb67.jpg",
     ],
     "favourite": true,
   },
@@ -19,7 +21,9 @@ const dynamic dummyData = [
     "reviewAVG": "4.7",
     "tags": ["Hike", "Cable Car"],
     "image": [
-      "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/d6/23/c7.jpg"
+      "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/d6/23/c7.jpg",
+      "https://lp-cms-production.imgix.net/2019-06/4bfc664674474351ae9a092ee6db1d47-mt-dajti-national-park.jpg",
+      "https://images.prismic.io/nationalparks/95c9719b-9519-4094-9c31-2471519687d6_dajti-national-park-dajti-express.jpeg?auto=compress,format"
     ],
     "favourite": false,
   },
