@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.epxerience_finder">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="epxerience_finder"
         android:name="${applicationName}"
@@ -30,6 +31,7 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
-       <uses-permission android:name="android.permission.INTERNET" />
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyDQsBjcINInatfrmXuKx8-qSpnh0SeRkiQ"/>
     </application>
 </manifest>
