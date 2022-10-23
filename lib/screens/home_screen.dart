@@ -56,6 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Expanded(
             flex: 20,
             child: ListView.separated(
+              physics: BouncingScrollPhysics(),
               shrinkWrap: true,
               padding: EdgeInsets.symmetric(vertical: 10),
               separatorBuilder: (BuildContext context, int index) {

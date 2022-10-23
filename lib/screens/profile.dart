@@ -43,7 +43,7 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.width * 0.1,
+              height: MediaQuery.of(context).size.width * 0.11,
               child: IntrinsicHeight(
                 child: Container(
                   decoration: BoxDecoration(
@@ -122,11 +122,11 @@ class _ProfileState extends State<Profile> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: Hero(
-                tag: experienceCardsData[0]['id'],
+                tag: 'tag_3',
                 child: ExperinceCard(
                   data: experienceCardsData[0],
                   deletable: true,
-                  heroTag: experienceCardsData[0]['id'],
+                  heroTag: 'tag_3',
                   image: experienceCardsData[0]['image'],
                   name: experienceCardsData[0]['name'],
                   distance: experienceCardsData[0]['distance'],
