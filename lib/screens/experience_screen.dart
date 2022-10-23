@@ -51,9 +51,12 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
                                   i++)
                                 Builder(
                                   builder: (BuildContext context) {
-                                    return Image.network(
-                                      widget.data['image'][i],
-                                      fit: BoxFit.cover,
+                                    return Container(
+                                      width: sw,
+                                      child: Image.network(
+                                        widget.data['image'][i],
+                                        fit: BoxFit.cover,
+                                      ),
                                     );
                                   },
                                 )
