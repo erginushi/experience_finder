@@ -51,6 +51,7 @@ class _ExperinceCardState extends State<ExperinceCard> {
       ),
       child: Container(
         height: 200,
+        width: MediaQuery.of(context).size.width * 0.9,
         decoration: BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
