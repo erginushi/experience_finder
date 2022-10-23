@@ -45,16 +45,19 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
                         children: [
                           CarouselSlider(
                             options: CarouselOptions(),
-                            items: [1, 2, 3, 4, 5].map((i) {
-                              return Builder(
-                                builder: (BuildContext context) {
-                                  return Image.network(
-                                    'https://albania360.com/wp-content/uploads/2022/06/286705471_5226925277344994_9150394650843000115_n-e1655302581295.jpg',
-                                    fit: BoxFit.cover,
-                                  );
-                                },
-                              );
-                            }).toList(),
+                            items: [
+                              for (var i = 0;
+                                  i < widget.data['image'].length;
+                                  i++)
+                                Builder(
+                                  builder: (BuildContext context) {
+                                    return Image.network(
+                                      widget.data['image'][i],
+                                      fit: BoxFit.cover,
+                                    );
+                                  },
+                                )
+                            ],
                           ),
                           TextButton(
                             style: ButtonStyle(

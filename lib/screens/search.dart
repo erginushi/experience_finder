@@ -139,7 +139,7 @@ class _SearchState extends State<Search> {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.3,
+              height: 230,
               child: ListView.separated(
                 itemCount: 2,
                 physics: BouncingScrollPhysics(),
@@ -151,11 +151,11 @@ class _SearchState extends State<Search> {
                 },
                 itemBuilder: (BuildContext context, int index) {
                   return Hero(
-                    tag: experienceCardsData[index]['id'],
+                    tag: "suggestion_" + experienceCardsData[index]['id'],
                     child: ExperinceCard(
                       data: experienceCardsData[index],
                       deletable: true,
-                      heroTag: experienceCardsData[index]['id'],
+                      heroTag: "suggestion_" + experienceCardsData[index]['id'],
                       image: experienceCardsData[index]['image'],
                       name: experienceCardsData[index]['name'],
                       distance: experienceCardsData[index]['distance'],
@@ -167,7 +167,7 @@ class _SearchState extends State<Search> {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.1,
+              height: 30,
               child: Row(
                 children: const [
                   Text(
@@ -179,7 +179,7 @@ class _SearchState extends State<Search> {
             ),
             for (var index = 0; index < experienceCardsData.length; index++)
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.3,
+                height: 250,
                 child: Hero(
                   tag: experienceCardsData[index]['id'],
                   child: ExperinceCard(

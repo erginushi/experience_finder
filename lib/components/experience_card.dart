@@ -6,7 +6,7 @@ class ExperinceCard extends StatefulWidget {
   final dynamic data;
   final bool deletable;
   final String heroTag;
-  final String image;
+  final List image;
   final String name;
   final String distance;
   final String reviews;
@@ -55,7 +55,7 @@ class _ExperinceCardState extends State<ExperinceCard> {
         decoration: BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
-            image: NetworkImage(widget.image),
+            image: NetworkImage(widget.image[0]),
           ),
           borderRadius: BorderRadius.all(Radius.circular(8)),
         ),
@@ -84,7 +84,7 @@ class _ExperinceCardState extends State<ExperinceCard> {
                               color: Color.fromRGBO(255, 215, 0, 1),
                             ),
                             Text(
-                              '4.8',
+                              widget.data['reviewAVG'],
                               style: TextStyle(
                                   color: Colors.black.withOpacity(0.6)),
                             ),
@@ -161,7 +161,7 @@ class _ExperinceCardState extends State<ExperinceCard> {
                             color: Colors.black,
                           ),
                           Text(
-                            widget.distance,
+                            widget.reviews,
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ],

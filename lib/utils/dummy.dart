@@ -4,29 +4,35 @@ const dynamic dummyData = [
     "name": "Petrela ZIP LINE",
     "distance": "5 KM",
     "reviews": "15 reviews",
-    "tags": ["Hike", "Extreme Sports"],
-    "image":
-        'https://albania360.com/wp-content/uploads/2022/06/286705471_5226925277344994_9150394650843000115_n-e1655302581295.jpg',
+    "reviewAVG": "4.3",
+    "tags": ["Hike", "Extreme Sports", "ZIP Line"],
+    "image": [
+      'https://albania360.com/wp-content/uploads/2022/06/286705471_5226925277344994_9150394650843000115_n-e1655302581295.jpg'
+    ],
     "favourite": true,
   },
   {
     "id": "dajti",
-    "name": "Dajti",
+    "name": "Dajti National Park",
     "distance": "25 KM",
     "reviews": "150 reviews",
-    "tags": ["Hike", "Extreme Sports"],
-    "image":
-        "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/d6/23/c7.jpg",
+    "reviewAVG": "4.7",
+    "tags": ["Hike", "Cable Car"],
+    "image": [
+      "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/d6/23/c7.jpg"
+    ],
     "favourite": false,
   },
   {
-    "id": "dajti1",
-    "name": "Dajti",
-    "distance": "25 KM",
-    "reviews": "150 reviews",
+    "id": "0",
+    "name": "ARENA KARTING ALBANIA",
+    "distance": "43 KM",
+    "reviews": "350 reviews",
+    "reviewAVG": "4.8",
     "tags": ["Hike", "Extreme Sports"],
-    "image":
-        "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/d6/23/c7.jpg",
+    "image": [
+      "https://arenakartingalbania.com/wp-content/uploads/elementor/thumbs/DSCF8866-ptb05ositx1f5bpvgs9w939hflm48c5pa4ehtrf34w.jpg"
+    ],
     "favourite": false,
   },
 ];
